@@ -18,7 +18,12 @@ export class Fave extends Component {
   render() {
     return (
       <div className="beerFave">
-        <button className="faveButton" onClick={this.handleClick}>
+        <button
+          className={`faveButton ${
+            this.state.isFavorite ? "is-favorite" : "not-favorite"
+          }`}
+          onClick={this.handleClick}
+        >
           {this.state.isFavorite ? "Remove from Fave" : "Add to Fave"}
         </button>
       </div>

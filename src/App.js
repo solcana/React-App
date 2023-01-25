@@ -4,6 +4,7 @@ import Beer from "./Beer";
 import BeerDescription from "./BeerDescription";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
+// import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 class App extends Component {
   constructor(props) {
@@ -92,6 +93,7 @@ class App extends Component {
           </form>
           <div className="heartIcon">
             <FontAwesomeIcon icon={faHeart} />
+
             {this.state.favoritesCount}
           </div>
         </nav>

@@ -65,3 +65,7 @@
 .heartIconClick {
   color: greenyellow;
 }
+
+.is-favorite {
+  background-color: rgb(21, 215, 215);
+}
