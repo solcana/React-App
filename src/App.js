@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import "./App.css";
 import Beer from "./Beer";
 import BeerDescription from "./BeerDescription";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
 class App extends Component {
   constructor(props) {
@@ -10,6 +12,8 @@ class App extends Component {
       malt: "",
       beerData: [],
       selectedBeer: null,
+      favoriteList: [],
+      favoritesCount: 0,
     };
   }
 
@@ -18,7 +22,6 @@ class App extends Component {
     this.setState({
       malt: value,
     });
-    console.log(value);
   };
 
   handleSubmit = (e) => {
@@ -41,12 +44,37 @@ class App extends Component {
     this.setState({ selectedBeer: item });
   };
 
+  updateFavoriteList = (beer) => {
+    console.log(beer);
+    this.setState(
+      (prevState) => {
+        if (!prevState.favoriteList.includes(beer)) {
+          return {
+            favoriteList: [...prevState.favoriteList, beer],
+            favoritesCount: prevState.favoritesCount + 1,
+          };
+        } else {
+          return {
+            favoriteList: prevState.favoriteList.filter(
+              (beers) => beers !== beer
+            ),
+            favoritesCount: prevState.favoritesCount - 1,
+          };
+        }
+      },
+      () => console.log(this.state.favoriteList, this.state.favoritesCount)
+    );
+  };
+
   render() {
     const beers = this.state.beerData.map((item, index) => {
-      console.log(item, index);
       return (
         <div onClick={() => this.handleClick(item)}>
-          <Beer beer={item} key={index} />
+          <Beer
+            beer={item}
+            key={index}
+            onFavoriteClick={() => this.updateFavoriteList(item)}
+          />
         </div>
       );
     });
@@ -54,7 +82,7 @@ class App extends Component {
     return (
       <div className="main-body">
         <nav>
-          <form onSubmit={this.handleSubmit}>
+          <form className="form" onSubmit={this.handleSubmit}>
             <input
               type="text"
               placeholder="Search beer"
@@ -62,6 +90,10 @@ class App extends Component {
             />
             <button type="submit">Search</button>
           </form>
+          <div className="heartIcon">
+            <FontAwesomeIcon icon={faHeart} />
+            {this.state.favoritesCount}
+          </div>
         </nav>
         <div className="card-container">
           <div className="first-column">{beers}</div>

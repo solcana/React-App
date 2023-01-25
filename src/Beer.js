@@ -11,7 +11,10 @@ export default class Beer extends Component {
         <div className="card">
           <h3>{this.props.beer.name}</h3>
           <img src={this.props.beer.image_url} className="image"></img>
-          <Fave />
+          <Fave
+            beer={this.props.beer}
+            onClickFave={this.props.onFavoriteClick}
+          />
         </div>
       </>
     );

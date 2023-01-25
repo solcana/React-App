@@ -7,17 +7,18 @@ export class Fave extends Component {
       isFavorite: false,
     };
   }
-  handleClick = (e) => {
-    console.log("handling Fave click");
-    this.setState((prevState) => {
-      return { isFavorite: !prevState.isFavorite };
-    });
+
+  handleClick = () => {
+    this.setState((prevState) => ({
+      isFavorite: !prevState.isFavorite,
+    }));
+    this.props.onClickFave(this.props.beer);
   };
 
   render() {
     return (
       <div className="beerFave">
-        <button className="faveIcon" onClick={this.handleClick}>
+        <button className="faveButton" onClick={this.handleClick}>
           {this.state.isFavorite ? "Remove from Fave" : "Add to Fave"}
         </button>
       </div>
