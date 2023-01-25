@@ -66,7 +66,9 @@ class App extends Component {
         <div className="card-container">
           <div className="first-column">{beers}</div>
           <div className="second-column">
-            {selectedBeer && <BeerDescription beer={selectedBeer} />}
+            {selectedBeer && (
+              <BeerDescription beer={selectedBeer} key={selectedBeer.id} />
+            )}
           </div>
         </div>
       </div>
