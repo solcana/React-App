@@ -1,13 +1,25 @@
 import React, { Component } from "react";
 
 export class Fave extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isFavorite: false,
+    };
+  }
   handleClick = (e) => {
     console.log("handling Fave click");
+    this.setState((prevState) => {
+      return { isFavorite: !prevState.isFavorite };
+    });
   };
+
   render() {
     return (
       <div className="beerFave">
-        <p className="faveIcon">add_to_fave</p>
+        <button className="faveIcon" onClick={this.handleClick}>
+          Add to Fave
+        </button>
       </div>
     );
   }

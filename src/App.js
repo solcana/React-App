@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import Beer from "./Beer";
+import BeerDescription from "./BeerDescription";
 
 class App extends Component {
   constructor(props) {
@@ -8,6 +9,7 @@ class App extends Component {
     this.state = {
       malt: "",
       beerData: [],
+      selectedBeer: null,
     };
   }
 
@@ -35,15 +37,20 @@ class App extends Component {
       });
   };
 
+  handleClick = (item) => {
+    this.setState({ selectedBeer: item });
+  };
+
   render() {
     const beers = this.state.beerData.map((item, index) => {
       console.log(item, index);
       return (
-        <div>
+        <div onClick={() => this.handleClick(item)}>
           <Beer beer={item} key={index} />
         </div>
       );
     });
+    const selectedBeer = this.state.selectedBeer;
     return (
       <div className="main-body">
         <nav>
@@ -56,7 +63,12 @@ class App extends Component {
             <button type="submit">Search</button>
           </form>
         </nav>
-        <div className="card-container">{beers}</div>
+        <div className="card-container">
+          <div className="first-column">{beers}</div>
+          <div className="second-column">
+            {selectedBeer && <BeerDescription beer={selectedBeer} />}
+          </div>
+        </div>
       </div>
     );
   }
