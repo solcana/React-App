@@ -67,6 +67,13 @@ class App extends Component {
     );
   };
 
+  // clearFavorites = () => {
+  //   this.setState({
+  //     favoriteList: [],
+  //     favoritesCount: 0,
+  //   });
+  // };
+
   render() {
     const beers = this.state.beerData.map((item, index) => {
       return (
@@ -81,8 +88,8 @@ class App extends Component {
     });
     const selectedBeer = this.state.selectedBeer;
     return (
-      <div className="main-body">
-        <nav>
+      <div>
+        <nav className="navBar">
           <form className="form" onSubmit={this.handleSubmit}>
             <input
               type="text"
@@ -93,9 +100,9 @@ class App extends Component {
           </form>
           <div className="heartIcon">
             <FontAwesomeIcon icon={faHeart} />
-
             {this.state.favoritesCount}
           </div>
+          {/* <button onClick={this.clearFavorites}>Clear favorites</button> */}
         </nav>
         <div className="card-container">
           <div className="first-column">{beers}</div>

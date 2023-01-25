@@ -1,5 +1,7 @@
-.main-body {
-  text-align: center;
+.navBar {
+  text-align: left;
+  margin: 0 0 10px 30px;
+  font-size: 24px;
 }
 
 .card-container {
