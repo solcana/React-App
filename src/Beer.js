@@ -9,7 +9,8 @@ export default class Beer extends Component {
     return (
       <>
         <div className="card">
-          <h3>{this.props.beer.name}</h3>
+          <h2>{this.props.beer.name}</h2>
+          <h4>{this.props.beer.tagline}</h4>
           <img src={this.props.beer.image_url} className="image"></img>
           <Fave
             beer={this.props.beer}

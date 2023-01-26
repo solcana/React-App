@@ -78,10 +78,12 @@ class App extends Component {
     const name = prompt("Enter a new beer name");
     const myNewBeer = {
       name: name,
+      tagline: this.state.beerData[0].tagline,
+      description: this.state.beerData[0].description,
+      abv: <img src={this.state.beerData[0].image_url}></img>,
     };
-
     this.setState(
-      { beerData: [...this.state.beerData, { myNewBeer }] },
+      { beerData: [myNewBeer].concat(this.state.beerData) },
       () => {}
     );
   };
