@@ -14,6 +14,7 @@ export default class Beer extends Component {
           <Fave
             beer={this.props.beer}
             onClickFave={this.props.onFavoriteClick}
+            isFave={this.props.isFave}
           />
         </div>
       </>

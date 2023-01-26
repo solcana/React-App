@@ -1,17 +1,17 @@
 import React, { Component } from "react";
 
 export class Fave extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isFavorite: false,
-    };
-  }
+  //   constructor(props) {
+  //     super(props);
+  //     this.state = {
+  //       isFavorite: false,
+  //     };
+  //   }
 
   handleClick = () => {
-    this.setState((prevState) => ({
-      isFavorite: !prevState.isFavorite,
-    }));
+    // this.setState((prevState) => ({
+    //   isFavorite: !prevState.isFavorite,
+    // }));
     this.props.onClickFave(this.props.beer);
   };
 
@@ -20,11 +20,11 @@ export class Fave extends Component {
       <div className="beerFave">
         <button
           className={`faveButton ${
-            this.state.isFavorite ? "is-favorite" : "not-favorite"
+            this.props.isFave ? "is-favorite" : "not-favorite"
           }`}
           onClick={this.handleClick}
         >
-          {this.state.isFavorite ? "Remove from Fave" : "Add to Fave"}
+          {this.props.isFave ? "Remove from Fave" : "Add to Fave"}
         </button>
       </div>
     );

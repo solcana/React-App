@@ -46,7 +46,7 @@ class App extends Component {
   };
 
   updateFavoriteList = (beer) => {
-    console.log(beer);
+    console.log("👋 This is App.updateFavoriteList", beer);
     this.setState(
       (prevState) => {
         if (!prevState.favoriteList.includes(beer)) {
@@ -67,28 +67,34 @@ class App extends Component {
     );
   };
 
-  // clearFavorites = () => {
-  //   this.setState({
-  //     favoriteList: [],
-  //     favoritesCount: 0,
-  //   });
-  // };
+  clearFavorites = () => {
+    this.setState({
+      favoriteList: [],
+      favoritesCount: 0,
+    });
+  };
 
   render() {
     const beers = this.state.beerData.map((item, index) => {
       return (
-        <div onClick={() => this.handleClick(item)}>
+        <div onClick={() => this.handleClick(item)} key={index}>
           <Beer
+            isFave={this.state.favoriteList.includes(item)}
             beer={item}
-            key={index}
-            onFavoriteClick={() => this.updateFavoriteList(item)}
+            onFavoriteClick={() => {
+              console.log(
+                "👋 This is App.render.state.beerData.map.onFavoriteClick.inlineFunction",
+                item
+              );
+              return this.updateFavoriteList(item);
+            }}
           />
         </div>
       );
     });
     const selectedBeer = this.state.selectedBeer;
     return (
-      <div>
+      <div className="main-body">
         <nav className="navBar">
           <form className="form" onSubmit={this.handleSubmit}>
             <input
@@ -102,13 +108,13 @@ class App extends Component {
             <FontAwesomeIcon icon={faHeart} />
             {this.state.favoritesCount}
           </div>
-          {/* <button onClick={this.clearFavorites}>Clear favorites</button> */}
+          <button onClick={this.clearFavorites}>Clear favorites</button>
         </nav>
         <div className="card-container">
           <div className="first-column">{beers}</div>
           <div className="second-column">
             {selectedBeer && (
-              <BeerDescription beer={selectedBeer} key={selectedBeer.id} />
+              <BeerDescription beer={selectedBeer} key={selectedBeer.name} />
             )}
           </div>
         </div>
