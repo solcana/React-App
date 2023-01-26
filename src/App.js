@@ -76,7 +76,14 @@ class App extends Component {
 
   addNewItem = () => {
     const name = prompt("Enter a new beer name");
-    this.setState({ beerData: [...this.state.beerData, { name }] }, () => {});
+    const myNewBeer = {
+      name: name,
+    };
+
+    this.setState(
+      { beerData: [...this.state.beerData, { myNewBeer }] },
+      () => {}
+    );
   };
 
   render() {

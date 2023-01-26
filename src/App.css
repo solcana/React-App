@@ -14,7 +14,7 @@
 }
 
 .navBar {
-  text-align: left;
+  text-align: center;
   margin: 0 0 10px 30px;
   font-size: 24px;
 }
@@ -75,12 +75,9 @@
 }
 
 .heartIcon {
-  color: rgb(93, 90, 90);
+  color: #eca2c0;
   display: inline-block;
-  margin: 0 15px;
-}
-.heartIconClick {
-  color: greenyellow;
+  margin: 0 10px;
 }
 
 .is-favorite {
