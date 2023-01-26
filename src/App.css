@@ -4,13 +4,7 @@
   grid-template-columns: 1fr;
   height: 100vh;
   width: 100vw;
-  background: radial-gradient(
-    circle at 7.5% 24%,
-    rgb(237, 161, 193) 0%,
-    rgb(250, 178, 172) 25.5%,
-    rgb(190, 228, 210) 62.3%,
-    rgb(215, 248, 247) 93.8%
-  );
+  background: linear-gradient(to right, rgb(182, 244, 146), rgb(51, 139, 147));
 }
 
 .navBar {
@@ -20,13 +14,13 @@
 }
 
 .card-container {
+  height: 100vh;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 10px;
 }
 
 .card {
-  display: flex;
   flex-direction: column;
   align-items: center;
   border: 7px solid #ccc;
@@ -75,7 +69,7 @@
 }
 
 .heartIcon {
-  color: #eca2c0;
+  color: #ed71d6;
   display: inline-block;
   margin: 0 10px;
 }

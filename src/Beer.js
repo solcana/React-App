@@ -2,9 +2,13 @@ import React, { Component } from "react";
 import Fave from "./Fave";
 
 export default class Beer extends Component {
-  constructor(props) {
-    super(props);
-  }
+  //   constructor(props) {
+  //     super(props);
+  //   }
+
+  handleDelete = () => {
+    this.props.handleDelete(this.props.beer);
+  };
   render() {
     return (
       <>
@@ -17,6 +21,7 @@ export default class Beer extends Component {
             onClickFave={this.props.onFavoriteClick}
             isFave={this.props.isFave}
           />
+          <button onClick={this.handleDelete}>Delete</button>
         </div>
       </>
     );

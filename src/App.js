@@ -74,10 +74,23 @@ class App extends Component {
     });
   };
 
+  clearList = () => {
+    this.setState(
+      {
+        beerData: [],
+      },
+      () => {
+        this.setState({
+          selectedBeer: null,
+        });
+      }
+    );
+  };
+
   addNewItem = () => {
-    const name = prompt("Enter a new beer name");
+    const input = prompt("Enter a new beer name");
     const myNewBeer = {
-      name: name,
+      name: input,
       tagline: this.state.beerData[0].tagline,
       description: this.state.beerData[0].description,
       abv: <img src={this.state.beerData[0].image_url}></img>,
@@ -88,6 +101,12 @@ class App extends Component {
     );
   };
 
+  handleDelete = (item) => {
+    this.setState({
+      beerData: this.state.beerData.filter((i) => i !== item),
+    });
+  };
+
   render() {
     const beers = this.state.beerData.map((item, index) => {
       return (
@@ -95,6 +114,7 @@ class App extends Component {
           <Beer
             isFave={this.state.favoriteList.includes(item)}
             beer={item}
+            handleDelete={this.handleDelete}
             onFavoriteClick={() => {
               return this.updateFavoriteList(item);
             }}
@@ -123,6 +143,9 @@ class App extends Component {
           </button>
           <button className="addNewItemBtn" onClick={this.addNewItem}>
             Add item
+          </button>
+          <button className="clearAllItems" onClick={this.clearList}>
+            Clear ALL beers
           </button>
         </nav>
         <div className="card-container">
