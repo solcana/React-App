@@ -74,6 +74,11 @@ class App extends Component {
     });
   };
 
+  addNewItem = () => {
+    const name = prompt("Enter a new beer name");
+    this.setState({ beerData: [...this.state.beerData, { name }] }, () => {});
+  };
+
   render() {
     const beers = this.state.beerData.map((item, index) => {
       return (
@@ -82,10 +87,6 @@ class App extends Component {
             isFave={this.state.favoriteList.includes(item)}
             beer={item}
             onFavoriteClick={() => {
-              console.log(
-                "👋 This is App.render.state.beerData.map.onFavoriteClick.inlineFunction",
-                item
-              );
               return this.updateFavoriteList(item);
             }}
           />
@@ -108,7 +109,12 @@ class App extends Component {
             <FontAwesomeIcon icon={faHeart} />
             {this.state.favoritesCount}
           </div>
-          <button onClick={this.clearFavorites}>Clear favorites</button>
+          <button className="clearFavsButton" onClick={this.clearFavorites}>
+            Clear favorites
+          </button>
+          <button className="addNewItemBtn" onClick={this.addNewItem}>
+            Add item
+          </button>
         </nav>
         <div className="card-container">
           <div className="first-column">{beers}</div>
