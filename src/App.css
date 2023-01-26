@@ -4,10 +4,10 @@
   grid-template-columns: 1fr;
   height: 100vh;
   width: 100vw;
-  background: radial-gradient(
-    circle at 10% 20%,
-    rgb(98, 114, 128) 0%,
-    rgb(52, 63, 51) 90.1%
+  background: linear-gradient(
+    109.6deg,
+    rgba(0, 0, 0, 0.93) 11.2%,
+    rgb(63, 61, 61) 78.9%
   );
 }
 
@@ -21,15 +21,15 @@
   height: 100vh;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-gap: 10px;
+  grid-gap: 20px;
 }
 
 .card {
   flex-direction: column;
   align-items: center;
   border: 7px solid #ccc;
-  padding: 16px;
-  margin: 16px;
+  padding: 20px;
+  margin: 20px;
   width: 300px;
 }
 
@@ -73,7 +73,7 @@
 }
 
 .heartIcon {
-  color: #ed71d6;
+  color: #5fad93;
   display: inline-block;
   margin: 0 10px;
 }
