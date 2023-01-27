@@ -109,6 +109,8 @@ Map() method was then used to iterate over the array and get the data.
 - Using Local Storage to keep data locally
 - Using React component libraries
 - Make the app responsive
+- Add scroll bar
+- Add pages
 
 ---
 
