@@ -1,73 +1,111 @@
-# Getting Started with Create React App
+# Beer React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#### Description
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+This is a React App where a user can search for their most loved beers within a beer list, favorite them, and edit the list.
 
-### `npm start`
+#### Links
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+###### Wireframe
 
-### `npm test`
+![](https://imgur.com/Dm1CgqZ.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+[App Link](https://solcana.github.io/Tic-Tac-Toe-/)
 
-### `npm run build`
+#### Technology
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- ReactJS
+- JSX
+- API
+- CSS
+- Git
+- GitHub
+- Fontawesome
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### User Stories
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- As a user, I can search through a list of beers
+- As a user, I can add a new beer item to the list
+- As a user, I can mark a beer/ multiple beers as favorite
+- As a user, I can unfavorite beer / beers
+- As a user, I can clear only the favorite beers list
+- As a user, I can remove a beer from the list
+- As a user, I can delete all beers from the list / clear the list
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Approach
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+This app is built in ReactJS, using four components, and data from an external API.
+Various API urls were tested before picking `https://api.punkapi.com/v2/beers?malt=pale`, that contains an array of objects.
 
-## Learn More
+```
+ handleSubmit = (e) => {
+    e.preventDefault();
+    const url = `https://api.punkapi.com/v2/beers?malt=${this.state.malt}`;
+    fetch(url)
+      .then(function (response) {
+        return response.json();
+      })
+      .then((results) => {
+        console.log(results);
+        this.setState({ beerData: results });
+      })
+      .catch(function (error) {
+        console.log("error", error);
+      });
+  };
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Map() method was then used to iterate over the array and get the data.
 
-### Code Splitting
+```
+  render() {
+    const beers = this.state.beerData.map((item, index) => {
+      return (
+        <div onClick={() => this.handleClick(item)} key={index}>
+          <Beer
+            isFave={this.state.favoriteList.includes(item)}
+            beer={item}
+            handleDelete={this.handleDelete}
+            onFavoriteClick={() => {
+              return this.updateFavoriteList(item);
+            }}
+          />
+        </div>
+      );
+    });
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+#### 🏆 Wins
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Practiced retrieving data from an API and developing a better understanding of it works
+- Got more comfortable using ReactJS by putting everything we learned in practice from scratch
+- Got more practice into reading errors and fixing bugs in my own code
 
-### Making a Progressive Web App
+#### 😅 Challenges
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+- This project felt super intense, to say the least, as we only had a week to learn and practice React before building an entire project by ourselves. But it does feel rewarding to have completed it regardless
+- Understanding what goes where, how the components are connected and also how APIs work were the main issue.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+#### ⭐️ Future improvements
 
-### Deployment
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# React-App
-# React-App
-# React-App
+- Styling
+- Using Local Storage to keep data locally
+- Using React component libraries
+- Make the app responsive

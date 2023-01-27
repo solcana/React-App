@@ -126,6 +126,10 @@ class App extends Component {
     return (
       <div className="main-body">
         <nav className="navBar">
+          <div className="heartIcon">
+            <FontAwesomeIcon icon={faHeart} />
+            {this.state.favoritesCount}
+          </div>
           <form className="form" onSubmit={this.handleSubmit}>
             <input
               type="text"
@@ -134,10 +138,6 @@ class App extends Component {
             />
             <button type="submit">Search</button>
           </form>
-          <div className="heartIcon">
-            <FontAwesomeIcon icon={faHeart} />
-            {this.state.favoritesCount}
-          </div>
           <button className="clearFavsButton" onClick={this.clearFavorites}>
             Clear favorites
           </button>

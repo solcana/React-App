@@ -64,6 +64,9 @@
 .image {
   width: 70px;
 }
+.form {
+  margin: 10px;
+}
 
 .beerFave {
   padding: 15px;
