@@ -136,15 +136,17 @@ class App extends Component {
               placeholder="Search beer"
               onChange={this.handleChange}
             />
-            <button type="submit">Search</button>
+            <button className="searchBtn" type="submit">
+              Search
+            </button>
           </form>
-          <button className="clearFavsButton" onClick={this.clearFavorites}>
+          <button className="clearFavsBtn" onClick={this.clearFavorites}>
             Clear favorites
           </button>
           <button className="addNewItemBtn" onClick={this.addNewItem}>
             Add item
           </button>
-          <button className="clearAllItems" onClick={this.clearList}>
+          <button className="clearAllItemsBtn" onClick={this.clearList}>
             Clear ALL beers
           </button>
         </nav>

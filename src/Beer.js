@@ -21,7 +21,9 @@ export default class Beer extends Component {
             onClickFave={this.props.onFavoriteClick}
             isFave={this.props.isFave}
           />
-          <button onClick={this.handleDelete}>Delete</button>
+          <button className="deleteBtn" onClick={this.handleDelete}>
+            Delete
+          </button>
         </div>
       </>
     );

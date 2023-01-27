@@ -1,4 +1,5 @@
 .main-body {
+  text-align: center;
   display: grid;
   grid-template-rows: 1fr;
   grid-template-columns: 1fr;
@@ -27,10 +28,12 @@
 .card {
   flex-direction: column;
   align-items: center;
-  border: 7px solid #ccc;
+  border: 7px solid rgb(255, 170, 212);
   padding: 20px;
   margin: 20px;
   width: 300px;
+  color: white;
+  font-weight: bold;
 }
 
 .first-column {
@@ -44,7 +47,6 @@
   background-color: #5fad93;
   padding: 20px;
   border-radius: 5px;
-  text-align: center;
 }
 
 .card h3 {
@@ -66,24 +68,47 @@
 }
 .form {
   margin: 10px;
+  display: inline;
 }
 
 .beerFave {
   padding: 15px;
 }
-.form {
-  display: inline-block;
-}
 
 .heartIcon {
-  color: #5fad93;
-  display: inline-block;
-  margin: 0 10px;
+  color: hotpink;
+  display: inline;
 }
 
 .is-favorite {
-  background-color: rgb(21, 215, 215);
+  background-color: hotpink;
+  color: white;
+  font-weight: bold;
+  padding: 7px;
+  border-radius: 5px;
 }
-.addNewItemBtn {
-  margin: 10px;
+
+.clearFavsBtn,
+.addNewItemBtn,
+.clearAllItemsBtn {
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #5fad93;
+  margin: 7px;
+  color: white;
+  font-weight: bold;
+}
+
+.deleteBtn {
+  background-color: white;
+  color: #5fad93;
+  font-weight: bold;
+  padding: 7px;
+  border-radius: 5px;
+}
+
+.faveButton {
+  font-weight: bold;
+  padding: 7px;
+  border-radius: 5px;
 }
