@@ -2,10 +2,6 @@ import React, { Component } from "react";
 import Fave from "./Fave";
 
 export default class Beer extends Component {
-  //   constructor(props) {
-  //     super(props);
-  //   }
-
   handleDelete = () => {
     this.props.handleDelete(this.props.beer);
   };
