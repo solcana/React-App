@@ -4,7 +4,7 @@
 
 ---
 
-This is a React App where a user can search for their most loved beers within a beer list, favorite them, and edit the list.
+This is a React App, build over 4 days as a solo project, where a user can search for their most loved beers within a beer list, favorite them, and edit the list.
 
 #### Links
 
